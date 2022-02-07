@@ -1,0 +1,36 @@
+{% extends 'timetable/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Add Venue {% endblock %}
+{% block content%}
+  <div class="outer_container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <div class="contents">
+            <div class="w3-card f-card">
+              {% if messages %}
+                  {% for message in messages %}
+                      <div class="alert message alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                          {{ message }}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="">&times;</span>
+                          </button>
+                          </div>
+                  {% endfor %}
+              {%  endif %}
+              <div class="f-heading">
+                <h3> ADD VENUE</h3>
+              </div>
+              <form action="" method="post">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button class="btn btn-outline-info mt-5 btn-block" type="submit" name="button">Save</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock%}

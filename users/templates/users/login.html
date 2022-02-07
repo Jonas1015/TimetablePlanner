@@ -1,0 +1,26 @@
+{% extends 'users/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} login {% endblock %}
+{% block content %}
+<div class="login_container">
+  <div class="row">
+    <div class="col-md-5 offset-md-3 user-column mb-3">
+      <div class="content mt-5 pt-5">
+        <div class="f-heading bg-info pb-2 pt-1 mb-3 w3-center" style="color:#ffffff">
+          <h3> Log In</h3>
+        </div>
+        <div class="login_form w3-card pb-1 pr-5 pl-5">
+            <form method="POST" class="form-group pt-5 ">
+              {% csrf_token %}
+                {{ form| crispy }}
+                <div class="form-group mt-5">
+                  <button class="btn btn-outline-info btn-block" type="submit">Login</button>
+                  <a href="#"> forgot password?</a>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

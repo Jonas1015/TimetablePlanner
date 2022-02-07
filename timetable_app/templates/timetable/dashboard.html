@@ -1,0 +1,107 @@
+{% extends 'timetable/base.html' %}
+{% block title %} Dashboard {% endblock %}
+{% block content%}
+  <div class="outer-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 ">
+        <div class="contents">
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                      {{ message }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="">&times;</span>
+                      </button>
+                      </div>
+              {% endfor %}
+          {%  endif %}
+            <div class="heading mb-4 bg-info">
+              <h3>DASHBOARD</h3>
+            </div>
+            <div class="w3-card d-flex">
+              <a class="col-3 summary" href="{% url 'view-venues' %}">
+                <span><h3>VENUES</h3></span>
+                <h2>
+                  {{ venues_number }}
+                </h2>
+              </a>
+              <a class="col-3 summary" href="{% url 'view-modules' %}">
+                <span><h3>MODULES</h3></span>
+                <h2>
+                  {{ modules_number }}
+                </h2>
+              </a>
+              <a class="col-3 summary" href="{% url 'view-courses' %}">
+                <span><h3>COURSES</h3></span>
+                <h2>
+                  {{ courses_number }}
+                </h2>
+              </a>
+              <a class="col-3 summary" href="{% url 'view-lecturers' %}">
+                <span><h3>LECTURERS</h3></span>
+                <h2>
+                  {{ lecturers_number }}
+                </h2>
+              </a>
+          </div>
+
+          <div class="w3-card col-12 mt-4 d-flex">
+            <table class="col-6 table table-hover table-bordered table-striped">
+              <tr>
+                <th>Venues</th>
+              </tr>
+              <tbody>
+                {% for venue in venues %}
+                <tr>
+                  <td> {{ venue.name }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="col-6 table table-hover table-bordered table-striped">
+              <tr>
+                <th>Modules</th>
+              </tr>
+              <tbody>
+                {% for module in modules %}
+                <tr>
+                  <td> {{ module.name }}  ({{ module.code }}) </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="w3-card col-12 mt-4 d-flex">
+            <table class="col-6 table table-hover table-bordered table-striped">
+              <tr>
+                <th>Courses</th>
+              </tr>
+              <tbody>
+                {% for course in courses %}
+                <tr>
+                  <td>  {{ course.name }} ({{ course.code }}) </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="col-6 table table-hover table-bordered table-striped">
+              <tr>
+                <th>Lecturers</th>
+              </tr>
+              <tbody>
+                {% for lecturer in lecturers %}
+                <tr>
+                  <td> {{ lecturer.name }} </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock%}

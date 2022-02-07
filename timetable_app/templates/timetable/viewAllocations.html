@@ -1,0 +1,81 @@
+{% extends 'timetable/base.html' %}
+{% block title %} View Allocations {% endblock %}
+{% block content %}
+<div class="outer-container">
+<div class="container">
+  <div class="row">
+    <div class="contents">
+      <div class="col-md-12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="">&times;</span>
+                    </button>
+                    </div>
+            {% endfor %}
+        {%  endif %}
+        <div class="heading bg-info">
+          <h3>ALLOCATIONS</h3>
+        </div>
+        <div class="d-flex">
+          <div >
+            <a href="{% url 'add-allocation' %}" class="btn btn-outline-info  mt-3"> <i class="fa fa-plus mr-2 "></i>Add Allocation</a>
+          </div>
+          <div class="w3-right ml-5">
+            <a href="{% url 'filter-courses' %}" class="btn btn-outline-secondary mt-3"> <i class="fa fa-table mr-2 "></i>Open Timetable</a>
+          </div>
+        </div>
+          <form class="form-inline mt-5 ml-2 block" method="GET">
+            <div class="searchBar">
+              <input type="text" name = "q" placeholder="Search Allocation">
+              <button type="submit" class="btn btn-outline-info mb-2">Search</button>
+            </div>
+        </form>
+        {% if allocations %}
+        <table class="table table-sm table-bordered table-striped table-hover">
+            <tr>
+                <!-- <thead class="thead-dark"> -->
+                <thead>
+                  <th>Day </th>
+                  <th>Time </th>
+                  <th>Course Name</th>
+                  <th>Module Name</th>
+                  <th>Lecturer Name</th>
+                  <th>Type</th>
+                  <th>Venue</th>
+                  <th>Action</th>
+                </thead>
+            </tr>
+            <tbody>
+                {% for allocation in allocations %}
+                <tr>
+                  <td>{{ allocation.day.name }}</td>
+                  <td>{{ allocation.start_lesson| time:"H:i" }} - {{ allocation.end_lesson | time:"H:i" }}</td>
+                  <td>{{ allocation.course.code }}</td>
+                  <td>{{ allocation.module.code }}</td>
+                  <td>{{ allocation.lecturer.name }}</td>
+                  <td>{{ allocation.get_type_display }}</td>
+                  <td>{{ allocation.venue.name }}</td>
+                  <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <a href="{% url 'update-allocation' allocation.id %}"><button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
+                      <a href="{% url 'delete-allocation' allocation.id %}" onclick="return confirm('Seriously Delete this!?');"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                      </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              {% else %}
+                <h1>Ooopps!! No Allocation loaded!</h1>
+              {% endif %}
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+{% endblock %}

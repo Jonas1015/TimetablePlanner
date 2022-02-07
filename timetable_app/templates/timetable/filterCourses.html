@@ -1,0 +1,44 @@
+{% extends 'timetable/base.html' %}
+{% block title %} choose course {% endblock %}
+{% block content %}
+<div class="outer-container">
+  <div class="container">
+    <div class="row">
+      <div class="contents">
+        <div class="col-12">
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                      {{ message }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="">&times;</span>
+                      </button>
+                      </div>
+              {% endfor %}
+          {%  endif %}
+        <div class="heading bg-info">
+            <h3>CHOOSE COURSE AND VIEW TIMETABLE</h3>
+        </div>
+        <form class="form-inline mt-5 ml-2 block" method="GET">
+            <div class="searchBar">
+              <input type="text" name = "q" placeholder="Search Courses">
+              <button type="submit" class="btn btn-outline-info mb-2">Search</button>
+            </div>
+        </form>
+          {% if courses %}
+            <div class="mt-5">
+                {% for course in courses %}
+                <li class="mb-3 w3-card col-12 c-card pt-3 pb-3 pl-3 pl-3 pr-3">
+                  <a href="{% url 'pdf' course.id %}">
+                      {{ course.name }} ({{ course.code }})
+                  </a>
+                </li>
+                {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

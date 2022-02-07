@@ -1,0 +1,26 @@
+{% extends 'users/base.html' %}
+{% block title %} User Profile {% endblock %}
+{% block content %}
+      <div class="profile-container">
+        <div class="row">
+          <div class="content col-md-12">
+            <div class="profile_card w3-card col-12 ">
+              <div class="elements ">
+                  <img class="rounded-circle" src="{{ user.profile.image.url }}" alt="{{ user.username }}">
+                  <h1 class="username">{{ user.username|title }}</h1>
+                  <h3 class="mail">{{ user.email }}</h3>
+                  <div class="social">
+                          <a href="#"><i class="fa fa-lg fa-google"></i></a>
+                          <a href="#"><i class="fa fa-lg fa-twitter"></i></a>
+                          <a href="#"><i class="fa fa-lg fa-linkedin"></i></a>
+                          <a href="#"><i class="fa fa-lg fa-facebook"></i></a>
+                  </div>
+              </div>
+              <div class="button">
+                <a class="btn btn-primary btn-block" href="{% url 'update' %}"><i class="fa fa-edit mr-3"></i> <strong>Update</strong></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock content %}

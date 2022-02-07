@@ -1,0 +1,342 @@
+/* @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'); */
+
+
+body {
+
+  font-family: "Montserrat", sans-serif;
+}
+.navbar {
+  color: #fff;
+
+}
+.navbar-brand {
+  color: #fff;
+}
+.nav-link {
+  color: #fff;
+}
+
+.w3-sidebar a{
+  color: #fff;
+  margin: 5px 0 0 10px;
+}
+
+.w3-sidebar a:hover {
+  color: blue;
+}
+
+.page {
+  margin-top: 30px;
+  margin-left: 270px;
+}
+
+
+.footer {
+  padding: 10px 0;
+  margin-top: 15.5vh;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* ================================ DASHBOARD ================================== */
+
+.summary {
+  text-align: center;
+}
+.summary:hover {
+  background: rgba(0, 130, 170, 0.7);
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* ============================== HOME PAGE ==================================== */
+.carousel-inner img {
+  height: 60vh;
+}
+
+.icons {
+  display: flex;
+  color: black;
+  margin-top: 40px;
+  position: absolute;
+  left: 2vw;
+}
+
+.icon1, .icon2, .icon3{
+  border:1px solid rgba(0, 0, 0, 0.7);
+  padding: 20px 40px;
+  font-size: 80px;
+  color: #000000;
+  width: 20vw;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.icons div a:hover {
+  text-decoration: none;
+}
+.icons div a div:hover {
+  background: rgba(10, 130, 170, 0.7);
+  border: 1px solid rgba(10, 130, 170, 0.7);
+  border-radius: 30px;
+  text-decoration: none;
+  color: #ffffff;
+  width: 20vw;
+  padding: 20px 40px;
+}
+
+.center-slider{
+  border: 1px solid black;
+  background-color:black ;
+  opacity: .7;
+  padding: 2px 10px 2px 10px;
+  background-size: cover;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center
+}
+
+.text-slider{
+  text-align: center;
+}
+
+
+/* =============================Login Page===================================== */
+.login{
+  /* position: relative; */
+  border: 1px solid black;
+  border-radius: 40px;
+  width:40%;
+  margin: 140px 80px 0px 400px;
+  padding:30px 20px 30px 20px;
+  background-color: black;
+  opacity: .7;
+
+}
+
+
+.text {
+  position:relative;
+  /* top: 4vh; */
+  background: #000;
+  border-radius: 20px;
+  color: white;
+  padding: 0 0 10px 0;
+  text-align: center;
+  margin: 0px 0px 0px 0px;
+  border-bottom: 1px solid #ffffffff;
+  }
+
+.login label {
+  color: #ffffff;
+  margin-left: 20px;
+  margin-bottom: 20px;
+
+}
+
+.login input {
+  width: 100%;
+  margin: 0 0 20px 0;
+  border-radius: 30px;
+}
+
+.login button{
+  width: 100px;
+  margin-left:30%;
+  background-color: rgba(110, 110, 110, 0.7);
+  border:1px solid #ffffff;
+  width: 10vw;
+  color: #ffffff;
+}
+
+/* ............admin page.................... */
+.ad-background {
+  background-image: url('../static/img/MNMA/1.jpg');
+  background-size: cover;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  /* margin-bottom: 20px; */
+  height: 100%;
+  width: 100%;
+}
+
+.ad-dropdown {
+  background: var(--theme)
+}
+
+.ad-dropdown a{
+    color: #ffffff;
+}
+.ad-dropdown a:hover{
+  text-decoration: none;
+  color:blue;
+}
+
+.admin-header{
+  border: 1px solid #000000;
+  /* border-radius:50px; */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  width: 70%;
+  margin: 20px 0px 0px 200px;
+}
+
+.overlay{
+  position: fixed;
+  display: block;
+  width: 70%;
+  height:70%;
+  top:24%;
+  left: 15%;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  /* border-radius: 90px; */
+  /* cursor: pointer; */
+}
+
+.text-o{
+  position: absolute;
+  top:59%;
+  left: 50%;
+  transform:translate(-50%, -50%);
+  -ms-transform:translate(-50%, -50%);
+  width:40%;
+  height:40%;
+}
+
+.admin-icon1, .admin-icon2{
+  border: 1px solid white;
+  border-radius: 70px;
+  height: 40vh;
+  width: 90%;
+  padding: 0 0 10px 0px;
+  font-size: 180px;
+  color: white;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+}
+.admin-icon1{
+  position: absolute;
+  right: 20vw;
+}
+.admin-icon2{
+  position: absolute;
+  left: 20vw;
+}
+
+.foot {
+  position: relative;
+  top: 74.5vh;
+}
+
+/*..............read page.............  */
+.read{
+  border: 1px solid black;
+  /* border-radius: 30px; */
+  background-color: rgba(0, 0, 0, 0.5);
+  margin:100px 100px 0px 100px;
+  color: white;
+  padding: 70px;
+
+}
+
+/* =======================Add Form ===========================================*/
+.f-card {
+  padding: 20px 20px 40px 20px;
+}
+.f-card .f-heading {
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+.f-card form {
+  margin: 10px 0 0 0;
+}
+.f-card form button {
+  background-color: blue;
+}
+
+
+
+/*=========================Listing Pages =======================================*/
+.outer-container .contents {
+  padding: 70px 40px;
+  width: 100%
+}
+.outer_container .contents  {
+  padding: 80px 0px;
+  width: 100%;
+}
+
+.outer-container .contents .heading {
+  text-align: center;
+  padding: 1px 0px;
+  height:50px;
+  color: #ffffff;
+}
+
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  border-radius: 40px;
+  border: 1px solid #e0e0e0;
+  padding-top: 2px;
+  padding-right: 3px;
+  height: 36px;
+}
+
+.searchBar input {
+  width: 80%;
+  height: 30px;
+  border: none;
+  border-radius: 30px;
+  padding: 0px 10px;
+}
+
+.searchBar button {
+  border-radius: 40px;
+  width: 20%;
+  height: 30px;
+  padding: 0px;
+}
+
+.outer-container .row .contents table{
+  margin-top: 30px;
+  margin-left: 5px;
+}
+.outer-container .row .contents table .btn {
+  border-radius: 0px;
+}
+
+.contents form button {
+  background: var(--background)
+}
+
+.button {
+  background-color: inherit !important;
+  border: none;
+}
+.c-card {
+  color: var(--theme);
+  margin-right: 10px;
+  list-style-type: none;
+}
+
+
+.c-card:hover {
+  background: rgba(10, 130, 170, 0.7);
+  color: #ffffff;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.c-card a:hover {
+  text-decoration: none;
+  color: #ffffff;
+}

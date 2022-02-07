@@ -1,0 +1,9 @@
+Creating User (SignUp)
+
+curl -X "POST" http://localhost:8000/api/signup -H 'Content-Type: application/json' -d '{"username":"jonas","email":"jonas@mail.test","password":"mynameisjonas1234"}'
+
+Login with token
+curl http://localhost:8000/api/login -H 'Authorization: Token {{your token}}'
+
+Login with creditials
+curl -X "POST" http://localhost:8000/api/login -H 'Content-Type: application/json' -d '{"username":"jonas","password":"mynameisjonas"}'

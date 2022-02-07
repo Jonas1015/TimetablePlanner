@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style>
+      body {
+        font-size: 10px;
+      }
+      .heading {
+        background: rgba(0, 130, 170, 0.7);
+        color: #ffffff;
+        padding: 10px 0 10px 0;
+        text-align: center;
+        font-size: 15px;
+      }
+      .table {
+        width: 100%;
+        border: 1px solid #000000;
+      }
+      .table th {
+        height: 50px;
+      }
+      td {
+        text-align: center;
+        height: 30px;
+      }
+
+      footer {
+        background: rgba(0, 130, 170, 0.7);
+        color: #ffffff;
+        text-align: center;
+        margin: 20px 0 0 0;
+        padding: 20px 0 20px 0;
+      }
+    </style>
+    <title>MNMA Timetable PDF</title>
+  </head>
+  <body>
+    <div class="outer-container">
+    <div class="container">
+      <div class="row">
+        <div class="contents">
+          <div class="col-md-12">
+            <div class="heading">
+              <h2> {{ course.name }} ({{course.code}}) (pdf)</h2>
+            </div>
+            <table class="table">
+                <tr>
+                    <!-- <thead class="thead-dark"> -->
+                    <thead>
+                      <th >Day</th>
+                      <th >Module Name</th>
+                      <th >Lecturer Name</th>
+                      <th >Type</th>
+                      <th >Venue</th>
+                      <th >Time</th>
+                    </thead>
+                </tr>
+                <tbody>
+                  {% for day in days %}
+                    <td> <strong>{{ day.name }}</strong></td>
+                    <tr>
+                      {% for allocation in allocations %}
+                        {% if allocation.day == day %}
+                          <td colspan="1"></td>
+                          <td>{{ allocation.module.code }}</td>
+                          <td>{{ allocation.lecturer.name }}</td>
+                          <td>{{ allocation.get_type_display }}</td>
+                          <td>{{ allocation.venue.name }}</td>
+                          <td>{{ allocation.start_lesson| time:"H:i" }} - {{ allocation.end_lesson | time:"H:i" }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endfor %}
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>Copyright &copy Mwalimu Nyerere Memorial Academy 2020 |  All rights reserved</p>
+    </footer>
+
+  </body>
+</html>

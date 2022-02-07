@@ -1,0 +1,66 @@
+{% extends 'timetable/base.html' %}
+{% block title %} View Venues {% endblock %}
+{% block content %}
+<div class="outer-container">
+<div class="container">
+  <div class="row">
+    <div class="contents">
+      <div class="col-md-12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="">&times;</span>
+                    </button>
+                    </div>
+            {% endfor %}
+        {%  endif %}
+        <div class="heading bg-info">
+          <h3>VENUES LIST</h3>
+        </div>
+        <div >
+          <a href="{% url 'add-venue' %}" class="btn btn-outline-info  mt-3"> <i class="fa fa-plus mr-2 "></i>Add Venue</a>
+        </div>
+          <form class="form-inline mt-5 ml-2 block" method="GET">
+            <div class="searchBar">
+              <input type="text" name = "q" placeholder="Search Venue">
+              <button type="submit" class="btn btn-outline-info mb-2">Search</button>
+            </div>
+        </form>
+        {% if venues %}
+        <table class="table table-sm table-bordered table-striped table-hover">
+            <tr>
+                <!-- <thead class="thead-dark"> -->
+                <thead>
+                  <th>Venue Name</th>
+                  <th>Capacity</th>
+                  <th>Action</th>
+                </thead>
+            </tr>
+            <tbody>
+                {% for venue in venues %}
+                <tr>
+                  <td>{{ venue.name }}</td>
+                  <td>{{ venue.capacity }}</td>
+                  <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <a href="{% url 'update-venue' venue.id %}"><button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
+                      <a href="{% url 'delete-venue' venue.id %}" onclick="return confirm('Seriously Delete this!?');"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                      </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              {% else %}
+                <h1>Ooopps!! No Venues loaded!</h1>
+              {% endif %}
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+{% endblock %}
